@@ -5,13 +5,7 @@ import { ChangeEvent, useState } from "react"
 export const SignUpForm = () => {
   const [sub, setSub] = useState("false")
 
-  const [newUser, setNewUser] = useState({
-    username: "",
-    password: "",
-    firstname: "",
-    subscription: false
-  })
-
+  //Setting subscription to n/y when checkbox is toggled
   function checkBox(e: ChangeEvent<HTMLInputElement>){
     if(e.target.checked){
       setSub("true")
@@ -20,12 +14,12 @@ export const SignUpForm = () => {
     }
   }
 
-//onChange={handleChange} onSubmit={() => createUser}
   return(
     <form id="signUpForm" method="POST" action="http://localhost:3001/addUser">
+      <input type="text" placeholder="Firstname" id="Firstname" name="firstname"/>
       <input type="text" placeholder="Username" id="Username" name="username" />
       <input type="password" placeholder="Password" id="Password" name="password"/>
-      <input type="text" placeholder="Firstname" id="Firstname" name="firstname"/>
+      <input type="email" placeholder="john.doe@example.com" id="email" name="email" />
       <label htmlFor="subscription">Signup for newsletter</label>
       <input type="checkbox" id="subscription" name="subscription" onChange={checkBox} value={sub}/>
 
@@ -33,26 +27,3 @@ export const SignUpForm = () => {
     </form>
   )
 }
-
-/*function handleChange(e: ChangeEvent<HTMLInputElement>){
-  let name = e.target.name;
-  setNewUser({...newUser, [name]: e.target.value})
-}
-
-function handleCheckbox(e: ChangeEvent<HTMLInputElement>){
-  console.log(e.target.value);
-
-  if(e.target.checked){
-    setNewUser({...newUser, subscription: true})
-  } else {
-    setNewUser({...newUser, subscription: false})
-  }
-}
-
-function createUser(e: SubmitEvent){
-  e.preventDefault()
-  axios.post('http://localhost:3001/addUser', newUser)
-  .then(res => {
-    console.log(res.data);
-  })
-}*/
