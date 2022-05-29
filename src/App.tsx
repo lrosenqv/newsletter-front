@@ -47,7 +47,7 @@ function App() {
           <SignUpForm />
           <button className="cancelBtn" type="button" onClick={() => setSignUpBtn(false)}>Cancel</button>
         </div>}
-        <a href="http://localhost/admin">Admin</a>
+        <a href="http://localhost:3001/admin">Admin</a>
       </>
       }
     </>
