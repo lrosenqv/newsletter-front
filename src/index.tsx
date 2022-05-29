@@ -1,11 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { Layout } from './components/Layout';
-import { UserProfile } from './components/UserProfile';
+import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
 import { NotFound } from './components/NotFound';
 
 const root = ReactDOM.createRoot(
@@ -16,11 +14,8 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Layout/>}>
-          <Route path="/" element={<App/>}/>
-          <Route path="/:username" element={<UserProfile/>}/>
-          <Route path='*' element={<NotFound/>}/>
-        </Route>
+        <Route path="/" element={<App/>}/>
+        <Route path='*' element={<NotFound/>}/>
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

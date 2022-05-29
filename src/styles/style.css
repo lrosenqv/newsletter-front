@@ -1,0 +1,20 @@
+div#root { width: 100%; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; padding: 5rem; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: center; -ms-flex-align: center; align-items: center; -webkit-box-sizing: border-box; box-sizing: border-box; }
+
+button { border: none; padding: 0.3rem; cursor: pointer; }
+
+button .cancelBtn { position: absolute; top: -2rem; }
+
+button.subOn { background-color: #814343; color: white; }
+
+button.subOff { background-color: #507550; color: white; }
+
+form { display: -webkit-box; display: -ms-flexbox; display: flex; -ms-flex-wrap: wrap; flex-wrap: wrap; width: 18rem; gap: 0.5rem; margin-bottom: 4rem; border: 1px solid black; padding: 2rem; }
+
+form input[type="text"] { width: 100%; }
+
+form input[type="password"] { width: 100%; }
+
+form input[type="email"] { width: 100%; }
+
+form button { width: 48%; }
+/*# sourceMappingURL=style.css.map */
