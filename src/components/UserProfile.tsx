@@ -1,4 +1,3 @@
-import axios from "axios"
 import { useEffect,  useState } from "react"
 import { IUser } from "../models/IUser";
 import { ApiService } from "../services/api";
@@ -33,7 +32,6 @@ export const UserProfile = () => {
 
   useEffect(() => {
     setSubOption(user.subscription)
-    console.log(subOption);
   }, [user])
 
   function handleClick(){
@@ -42,9 +40,8 @@ export const UserProfile = () => {
     } else {
       setSubOption(true)
     }
-      service.changeSubscription(JSON.parse(id), !subOption)
+    service.changeSubscription(JSON.parse(id), !subOption)
   }
-
 
   function logout(){
     localStorage.removeItem('onlineUserKey')

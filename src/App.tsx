@@ -10,6 +10,7 @@ function App() {
   const [loggedIn, setLoggedIn] = useState(false)
   const [signUpBtn, setSignUpBtn] = useState(false);
   const [user, setUser] = useState<ILogin>({username: "", password: ""});
+  const [errorMsg, setErrorMsg] = useState(false)
 
   useEffect(() => {
   let ls = localStorage.getItem('onlineUserKey')
@@ -21,12 +22,20 @@ function App() {
   function handleChange(e: ChangeEvent<HTMLInputElement>){
     let name = e.target.name;
     setUser({...user, [name]: e.target.value})
+    setErrorMsg(false)
   }
 
   function login(e: SyntheticEvent){
     e.preventDefault();
     service.login(user)
-    window.location.assign('/')
+    .then(res =>{
+      if(res === "Not Found"){
+        setErrorMsg(true)
+      }
+      else {
+        window.location.reload()
+      }
+    })
   }
 
   return (
@@ -47,7 +56,11 @@ function App() {
           <SignUpForm />
           <button className="cancelBtn" type="button" onClick={() => setSignUpBtn(false)}>Cancel</button>
         </div>}
-        <a href="http://localhost:3001/admin">Admin</a>
+          
+        {errorMsg && <div>
+          Not found
+        </div>}
+        <a href="http://localhost/admin">Admin</a>
       </>
       }
     </>

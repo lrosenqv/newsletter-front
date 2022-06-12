@@ -1,6 +1,3 @@
-import axios from "axios";
-import { userInfo } from "os";
-import { off } from "process";
 import { ChangeEvent, SyntheticEvent, useState } from "react"
 import { INewUser } from "../models/INewUser";
 import { ApiService } from "../services/api";
@@ -27,7 +24,6 @@ export const SignUpForm = () => {
     } else {
       setNewUser({...newUser, subscription: false})
     }
-    console.log(newUser);
   }
 
   function addNewUser(e: SyntheticEvent){
