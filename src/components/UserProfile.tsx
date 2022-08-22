@@ -50,12 +50,14 @@ export const UserProfile = () => {
 
   return(<>
     <h1>UserProfile</h1>
-    <div>
+    <div id="userInfo">
       <h2>Welcome { user.username }!</h2>
       <p>Email: { user.email }</p>
+      <div className="buttonContainer">
       {subOption ? <button className="subOn" onClick={handleClick}>Turn off subscription</button>
       : <button className="subOff" onClick={handleClick}>Turn on subscription</button>}
       <button onClick={logout}>Logout</button>
+      </div>
     </div>
   </>)
 }

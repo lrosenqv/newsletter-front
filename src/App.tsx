@@ -25,16 +25,20 @@ function App() {
     setErrorMsg(false)
   }
 
+  function handleCancel(){
+    setSignUpBtn(false)
+  }
+
   function login(e: SyntheticEvent){
     e.preventDefault();
     service.login(user)
     .then(res =>{
-      if(res === "Not Found"){
+      if(res === "Not found"){
         setErrorMsg(true)
       }
       else {
         window.location.reload()
-      }
+      } 
     })
   }
 
@@ -45,21 +49,25 @@ function App() {
       }
 
       {!loggedIn && <>
-        <form onSubmit={login}>
-          <input type="text" placeholder="Username" id="username" name="username" required onChange={handleChange}/>
-          <input type="password" placeholder="Password" id="password" name="password" required onChange={handleChange}/>
-          <button type="submit" >Sign in</button>
-          <button type="button" onClick={() => setSignUpBtn(true)}>Create User</button>
-        </form>
+
+        {signUpBtn ? <h1>New User</h1> : <h1>Login</h1>}
+        {!signUpBtn && <>
+          <form onSubmit={login}>
+            <input type="text" placeholder="Username" id="username" name="username" required onChange={handleChange}/>
+            <input type="password" placeholder="Password" id="password" name="password" required onChange={handleChange}/>
+            <button type="submit" >Sign in</button>
+            <button type="button" onClick={() => setSignUpBtn(true)}>Create User</button>
+
+            {errorMsg && <div id="errorMsg">
+              User not found
+            </div>}
+          </form>
+        </>}
 
         { signUpBtn && <div>
-          <SignUpForm />
-          <button className="cancelBtn" type="button" onClick={() => setSignUpBtn(false)}>Cancel</button>
+          <SignUpForm cancelClick={handleCancel}/>
         </div>}
           
-        {errorMsg && <div>
-          Not found
-        </div>}
         <a href="http://localhost/admin">Admin</a>
       </>
       }

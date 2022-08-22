@@ -27,7 +27,7 @@ export class ApiService {
   async login(user: ILogin){
     let response = await axios.post('http://localhost:3001/login', user)
     .then(res => {
-      if(res.statusText === "OK"){
+      if(res.data !== "Not found"){
         localStorage.setItem('onlineUserKey', JSON.stringify(res.data._id))
       }
       return res.data

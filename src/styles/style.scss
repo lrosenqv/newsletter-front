@@ -6,12 +6,25 @@ div#root{
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
+
+  #userInfo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .buttonContainer{
+      display: flex;
+      margin-top: 10px;
+      column-gap: 5px;
+    }
+  }
 }
 
 button{
   border: none;
   padding: 0.3rem;
   cursor: pointer;
+  background-color: rgb(202, 202, 202);
 
   .cancelBtn{
     position: absolute;
@@ -46,6 +59,11 @@ form{
   }
   input[type="email"]{
     width:100%;
+  }
+
+  #errorMsg{
+    color: rgb(194, 54, 54);
+    margin: 10px 0 0;
   }
 
   button{

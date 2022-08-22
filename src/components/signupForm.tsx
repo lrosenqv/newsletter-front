@@ -1,10 +1,14 @@
-import { ChangeEvent, SyntheticEvent, useState } from "react"
+import { ButtonHTMLAttributes, ChangeEvent, ComponentProps, PropsWithoutRef, PropsWithRef, SyntheticEvent, useState } from "react"
 import { INewUser } from "../models/INewUser";
 import { ApiService } from "../services/api";
 
 const service = new ApiService();
 
-export const SignUpForm = () => {
+interface ICancelProps{
+  cancelClick: (event: React.MouseEvent<HTMLButtonElement>) => void
+}
+
+export const SignUpForm = (Props: ICancelProps) => {
   const [newUser, setNewUser] = useState<INewUser>({
     username: "",
     password: "",
@@ -41,6 +45,7 @@ export const SignUpForm = () => {
       <input type="checkbox" id="subscription" name="subscription" onChange={handleCheckbox}/>
 
       <button type="submit">Sign up</button>
+      <button className="cancelBtn" type="button" onClick={Props.cancelClick}>Cancel</button>
     </form>
   )
 }
