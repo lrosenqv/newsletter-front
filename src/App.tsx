@@ -68,7 +68,7 @@ function App() {
           <SignUpForm cancelClick={handleCancel}/>
         </div>}
           
-        <a href="http://localhost/admin">Admin</a>
+        <a href="https://dw-newsletter.herokuapp.com/admin">Admin</a>
       </>
       }
     </>
