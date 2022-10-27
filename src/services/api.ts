@@ -38,13 +38,14 @@ export class ApiService {
     return response
   }
 
-  addUser(newUser: INewUser){
-    axios.post('https://dw-newsletter.herokuapp.com/addUser', newUser)
-    .then(res => {
-      console.log(res.data);
+  async addUser(newUser: INewUser){
+    let req = await axios.post('https://dw-newsletter.herokuapp.com/addUser', newUser)
+    .then((res) => {
+      return res.data
     })
     .catch(error => {
       console.error(error);
     })
+    return req
   }
 }
