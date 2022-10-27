@@ -37,7 +37,7 @@ export const SignUpForm = (Props: ICancelProps) => {
     service.addUser(newUser)
     .then(res => {
       if(res === "New User Added") {
-        window.location.assign('/')
+        window.location.assign('/newsletter-front')
       } else {
         setCantAdd(true)
       }
