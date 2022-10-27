@@ -14,7 +14,7 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
-        <Route path="/newsletter-front" element={<App/>}/>
+        <Route path="/" element={<App/>}/>
         <Route path='*' element={<NotFound/>}/>
       </Routes>
     </BrowserRouter>
